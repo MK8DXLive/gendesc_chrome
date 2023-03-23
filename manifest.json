@@ -1,0 +1,24 @@
+{
+    "name": "Description Generator for MK8DXRecords",
+    "version": "1.1.1",
+    "manifest_version": 3,
+    "description": "generate video description from mkwrs.com/mk8dx/display?track=*",
+    "icons": {
+        "16": "img/favicon16.png",
+        "48": "img/favicon48.png",
+        "128": "img/favicon128.png"
+    },
+    "content_scripts": [{
+        "matches": ["https://mkwrs.com/mk8dx/display.php?track=*"],
+        "js": [
+            "descChrome.js"
+        ]
+
+    }],
+
+    "options_ui": {
+        "page": "options.html"
+    },
+
+    "permissions": ["storage"]
+}

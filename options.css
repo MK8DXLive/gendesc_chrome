@@ -1,0 +1,12 @@
+.box {
+    transition-property: opacity;
+    transition-duration: 0.5s;
+    opacity: 0;
+    color: #0000ff;
+    background-color: #d0d0ff;
+    float: right;
+}
+
+.box.is-show {
+    opacity: 1;
+}
