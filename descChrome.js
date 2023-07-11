@@ -19,6 +19,7 @@ function copy_from_textarea() {
 
 function main() {
     const TEXT = parseAllText()
+    console.log(TEXT)
     parseText(TEXT);
     outputDesc();
     copy_from_textarea();
@@ -100,7 +101,7 @@ function parseText(s) {
                 q = 0;
                 readMode = true;
             }
-        } else if (SRC[p].trim() == "</tr>") {
+        } else if (SRC[p].trim().match(/^<\/tr>/)) {
             if (ele.length == 14) {
                 var rec = new Record(ele[0], ele[1], ele[2], ele[3], ele[5], ele[6], ele[7], ele[8], ele[9], ele[10], ele[11], ele[12], ele[13]);
                 recordList.push(rec);
@@ -137,7 +138,7 @@ function parseText(s) {
                 }
             } else if (q == 3) {
                 ele.push(SRC[p].trim().match(/<td.*><center><img alt\s*=\s*\"(.+)\" title.+><\/center><\/td>/)[1]);
-            } else { // q=0,4,5,6...
+            } else { // q(=column)=0,4,5,6...
                 if (SRC[p].trim().match(/<td.*>.+<a .+>.+<\/a><\/td>/)) { // including star icon
                     ele.push(SRC[p].trim().match(/<td.*>(.+)<a .+>.+<\/a><\/td>/)[1]);
                 } else {
